@@ -1,145 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign-Up Form</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f9f9f9;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign-Up Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary-color: #2a9d8f;
+      --accent-color: #264653;
+      --background-color: #f9f9f9;
+      --input-border: #ccc;
+    }
 
-        .container {
-            display: flex;
-            width: 80%;
-            max-width: 1200px;
-            background-color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--background-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
 
-        .image-section {
-            flex: 1;
-            background-image: url('https://images.unsplash.com/photo-1585202900225-6d3ac20a6962?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
+    .container {
+      display: flex;
+      flex-direction: row;
+      width: 90%;
+      max-width: 1100px;
+      background-color: #fff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
 
-        .image-section img {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 100px;
-        }
+    .image-section {
+      flex: 1;
+      background-image: url('https://images.unsplash.com/photo-1585202900225-6d3ac20a6962?q=80&w=1287&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
 
-        .form-section {
-            flex: 1;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-        }
+    .image-section img {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 90px;
+    }
 
-        .form-section h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
+    .form-section {
+      flex: 1;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
 
-        .form-section p {
-            font-size: 16px;
-            margin-bottom: 20px;
-            color: #555;
-        }
+    .form-section h1 {
+      font-size: 28px;
+      color: var(--accent-color);
+      margin-bottom: 10px;
+    }
 
-        form {
-            display: flex;
-            flex-direction: column;
-        }
+    .form-section p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 25px;
+    }
 
-        .form-group {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-        }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
 
-        .form-group input {
-            flex: 1;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
+    .form-group {
+      display: flex;
+      gap: 10px;
+    }
 
-        input[type="password"], input[type="email"], input[type="text"], input[type="number"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
+    .form-group input,
+    input[type="password"],
+    input[type="email"],
+    input[type="text"],
+    input[type="number"] {
+      flex: 1;
+      padding: 12px;
+      font-size: 15px;
+      border: 1px solid var(--input-border);
+      border-radius: 5px;
+      transition: border-color 0.3s ease;
+    }
 
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
+    input:focus {
+      border-color: var(--primary-color);
+      outline: none;
+    }
 
-        button:hover {
-            background-color: #45a049;
-        }
+    button {
+      padding: 12px;
+      background-color: var(--primary-color);
+      border: none;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
 
-        .login {
-            margin-top: 15px;
-            text-align: center;
-        }
+    button:hover {
+      background-color: #21867a;
+    }
 
-        .login a {
-            text-decoration: none;
-            color: #4CAF50;
-        }
+    .login {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+    }
 
-        .login a:hover {
-            text-decoration: underline;
-        }
+    .login a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
 
-    </style>
+    .login a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        width: 95%;
+      }
+
+      .image-section {
+        height: 200px;
+      }
+
+      .image-section img {
+        width: 70px;
+      }
+
+      .form-section {
+        padding: 25px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="image-section">
-            <img src="https://cdn.statically.io/gh/TheOdinProject/curriculum/5f37d43908ef92499e95a9b90fc3cc291a95014c/html_css/project-sign-up-form/odin-lined.png" alt="Odin Logo">
-        </div>
-        <div class="form-section">
-            <h1>Let’s do this!</h1>
-            <p>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams. Sign up <strong>now</strong> to get started. You <em>know</em> you want to.</p>
-            <form>
-                <div class="form-group">
-                    <input type="text" placeholder="First Name" required>
-                    <input type="text" placeholder="Last Name" required>
-                </div>
-                <input type="email" placeholder="Email" required>
-                <input type="number" placeholder="Phone Number" required>
-                <div class="form-group">
-                    <input type="password" placeholder="Password" required>
-                    <input type="password" placeholder="Confirm Password" required>
-                </div>
-                <button type="submit">Create Account</button>
-            </form>
-            <div class="login">
-                Already have an account? <a href="#">Log in</a>
-            </div>
-        </div>
+  <div class="container">
+    <div class="image-section">
+      <img src="https://cdn.statically.io/gh/TheOdinProject/curriculum/5f37d43908ef92499e95a9b90fc3cc291a95014c/html_css/project-sign-up-form/odin-lined.png" alt="Logo" />
     </div>
+    <div class="form-section">
+      <h1>Let’s do this!</h1>
+      <p>This isn’t a real service—but it’s the kind you wish existed. Sign up now to level up your life. You know you want to.</p>
+      <form>
+        <div class="form-group">
+          <input type="text" name="firstName" placeholder="First Name" required aria-label="First Name" />
+          <input type="text" name="lastName" placeholder="Last Name" required aria-label="Last Name" />
+        </div>
+        <input type="email" name="email" placeholder="Email" required aria-label="Email" />
+        <input type="number" name="phone" placeholder="Phone Number" required aria-label="Phone Number" />
+        <div class="form-group">
+          <input type="password" name="password" placeholder="Password" required aria-label="Password" />
+          <input type="password" name="confirmPassword" placeholder="Confirm Password" required aria-label="Confirm Password" />
+        </div>
+        <button type="submit">Create Account</button>
+      </form>
+      <div class="login">
+        Already have an account? <a href="#">Log in</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
